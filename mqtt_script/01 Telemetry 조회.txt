@@ -1,0 +1,7 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "telemetry": "temperature",
+  "cmdId": 5,
+  "cmd": "getTelemetry"
+}

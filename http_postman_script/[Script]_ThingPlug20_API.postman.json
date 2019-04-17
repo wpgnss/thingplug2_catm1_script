@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "ac06ed97-2e98-4d8a-9229-60b189646001",
+		"name": "ThingPlug20_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01Auth",
+			"item": [
+				{
+					"name": "로그인",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{user_id}}\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/login",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "토큰 갱신",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJ...\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/login/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02User",
+			"item": [
+				{
+					"name": "디바이스 리스트 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"value": "{{X-Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/users/{{user_id}}/devices",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_id}}",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03httpTransport",
+			"item": [
+				{
+					"name": "Telemetry 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/dev/{{service_id}}/{{device_id}}/telemetry?telemetry={{telemetry_name}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"dev",
+								"{{service_id}}",
+								"{{device_id}}",
+								"telemetry"
+							],
+							"query": [
+								{
+									"key": "telemetry",
+									"value": "{{telemetry_name}}"
+								},
+								{
+									"key": "from",
+									"value": "2019-04-16%2000%3A00%3A00",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "2019-04-16%2024%3A00%3A00",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "최신 Telemetry 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/dev/{{service_id}}/{{device_id}}/telemetry/latest?telemetry={{telemetry_name}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"dev",
+								"{{service_id}}",
+								"{{device_id}}",
+								"telemetry",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "telemetry",
+									"value": "{{telemetry_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attribute 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/dev/{{service_id}}/{{device_id}}/attribute?attribute={{attribute_name}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"dev",
+								"{{service_id}}",
+								"{{device_id}}",
+								"attribute"
+							],
+							"query": [
+								{
+									"key": "attribute",
+									"value": "{{attribute_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attribute 속성 설정",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"{{attribute_name}}\": \"ON\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/dev/{{service_id}}/{{device_id}}/attribute",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"dev",
+								"{{service_id}}",
+								"{{device_id}}",
+								"attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RPC 호출",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rpcReq\": {\n        \"jsonrpc\": \"2.0\",\n        \"method\": \"tp_user\",\n        \"params\": {\n            \"test\": \"data\"\n        },\n        \"id\": 10\n    },\n    \"rpcMode\": \"oneway\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/dev/{{service_id}}/{{device_id}}/rpc",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"dev",
+								"{{service_id}}",
+								"{{device_id}}",
+								"rpc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04Device",
+			"item": [
+				{
+					"name": "디바이스 리스트 조회",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/devices",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 디바이스 등록",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceName\": \"{{device_id}}\",\n    \"ownerUserName\": \"{{user_id}}\",\n    \"deviceDescriptorName\": \"academy\",\n    \"visibility\": \"PRIVATE\",\n    \"displayName\": \"{{device_id}}\",\n    \"regType\": \"OPEN\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/devices",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 디바이스 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/devices/{{device_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"devices",
+								"{{device_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 디바이스 상태_ACTIVE",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"ACTIVE\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/devices/{{device_id}}/state",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"devices",
+								"{{device_id}}",
+								"state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 디바이스 상태_SUSPENDED",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"type": "text",
+								"value": "{{X-Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"SUSPENDED\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/devices/{{device_id}}/state",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"devices",
+								"{{device_id}}",
+								"state"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05FirmwareOTA",
+			"item": [
+				{
+					"name": "펌웨어 등록",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "close",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"value": "{{X-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "raw",
+									"value": "{\"serviceName\":\"{{service_id}}\",\"name\":\"myfirmware\",\"version\":\"v0.2\",\"description\":\"initial\",\"fileName\":\"u.bin\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://portal.sktiot.com/portal/services/{{service_id}}/firmwares",
+							"protocol": "https",
+							"host": [
+								"portal",
+								"sktiot",
+								"com"
+							],
+							"path": [
+								"portal",
+								"services",
+								"{{service_id}}",
+								"firmwares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FOTA 실행 요청",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "close",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"value": "{{X-Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firmwareId\": 853,\n    \"upgradeDate\": \"2019-04-17 15:12:00.000\",\n    \"register\": \"{{user_id}}\",\n    \"deviceName\": \"{{device_id}}\"\n}"
+						},
+						"url": {
+							"raw": "https://portal.sktiot.com/portal/services/{{service_id}}/firmware-upgrades",
+							"protocol": "https",
+							"host": [
+								"portal",
+								"sktiot",
+								"com"
+							],
+							"path": [
+								"portal",
+								"services",
+								"{{service_id}}",
+								"firmware-upgrades"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

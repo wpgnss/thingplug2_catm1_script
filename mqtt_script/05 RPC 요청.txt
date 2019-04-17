@@ -1,0 +1,15 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "cmd": "jsonRpc",
+  "cmdId": 20,
+  "rpcReq": {
+    "jsonrpc": "2.0",
+    "method": "tp_user",
+    "params": [
+      "test"
+    ],
+    "id": 6
+  },
+  "rpcMode": "oneway"
+}

@@ -1,0 +1,45 @@
+{
+	"id": "82599362-745d-4069-b1f4-f00dbb259720",
+	"name": "ThingPlug2.0",
+	"values": [
+		{
+			"key": "user_id",
+			"value": "",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "X-Authorization",
+			"value": "",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "service_id",
+			"value": "",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "device_id",
+			"value": "",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "telemetry_name",
+			"value": "",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "attribute_name",
+			"value": "",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-04-17T06:18:39.563Z",
+	"_postman_exported_using": "Postman/6.7.3"
+}

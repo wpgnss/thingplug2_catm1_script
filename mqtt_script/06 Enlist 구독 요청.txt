@@ -1,0 +1,15 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "isTargetAll": false,
+  "telemetry": [
+    "*"
+  ],
+  "attribute": [
+    "*"
+  ],
+  "isIncludeServiceName": true,
+  "isIncludeDeviceName": true,
+  "cmdId": 1,
+  "cmd": "enlist"
+}

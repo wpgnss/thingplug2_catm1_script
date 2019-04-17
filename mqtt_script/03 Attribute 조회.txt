@@ -1,0 +1,9 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "attribute": [
+    "LED"
+  ],
+  "cmdId": 7,
+  "cmd": "getAttribute"
+}

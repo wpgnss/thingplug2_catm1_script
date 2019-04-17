@@ -1,0 +1,10 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "telemetry": [
+    "temperature"
+  ],
+  "cmdId": 7,
+  "cmd": "getLatestTelemetry"
+}
+

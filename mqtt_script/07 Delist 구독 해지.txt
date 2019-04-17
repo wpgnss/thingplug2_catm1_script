@@ -1,0 +1,13 @@
+{
+  "serviceName": "SERVICE",
+  "deviceName": "DEVICE",
+  "isTargetAll": false,
+  "telemetry": [
+    "temperature"
+  ],
+  "attribute": [
+    "*"
+  ],
+  "cmdId": 1,
+  "cmd": "delist"
+}
