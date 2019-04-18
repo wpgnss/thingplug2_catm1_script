@@ -386,6 +386,84 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Dweet.io 테스트",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"{{telemetry_name}}\": \"test_data\"\n}"
+						},
+						"url": {
+							"raw": "http://dweet.io/dweet/for/{{service_id}}",
+							"protocol": "http",
+							"host": [
+								"dweet",
+								"io"
+							],
+							"path": [
+								"dweet",
+								"for",
+								"{{service_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "룰엔진 Dweet.io 등록",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Authorization",
+								"value": "{{X-Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pluginName\": \"myRestAPICall\",\n    \"clazz\": \"com.sk.thingplug.rpengine.component.plugin.RestAPICallPlugin\",\n    \"state\": \"ACTIVE\",\n    \"configuration\": {\n        \"url\": \"http://dweet.io\"\n    },\n    \"description\": \"rest API call plugin\"\n}"
+						},
+						"url": {
+							"raw": "https://test.sktiot.com:9443/api/v1/services/{{service_id}}/plugins",
+							"protocol": "https",
+							"host": [
+								"test",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"api",
+								"v1",
+								"services",
+								"{{service_id}}",
+								"plugins"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
