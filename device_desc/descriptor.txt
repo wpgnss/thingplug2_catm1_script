@@ -1,0 +1,29 @@
+{
+  "format": "json",
+  "jsonForm": {
+    "telemetries": [
+      {
+        "name": "temperature",
+        "tag": "temperature"
+      },
+      {
+        "name": "humidity",
+        "tag": "humidity"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "LED",
+        "commandable": true
+      },
+      {
+        "name": "lat",
+        "tag": "latitude"
+      },
+      {
+        "name": "long",
+        "tag": "longitude"
+      }
+    ]
+  }
+}
